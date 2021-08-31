@@ -38,12 +38,12 @@ bool LinkedList<T>::search(T value) const
 	Node<T>* temp = m_front;
 	if (value > m_size || value < 1)
 	{
-		throw(std::runtime_error("Value out of list.\n"));
+		return(false);
 	} else {
 		for (int i = 1; i < value; i++) {
 			temp = temp->getNext();
 		}
-		return(temp->getValue());
+		return(true);
 	}
 }
 
