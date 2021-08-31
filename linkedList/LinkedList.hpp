@@ -29,23 +29,22 @@ bool LinkedList<T>::isEmpty() const
 template <typename T>
 int LinkedList<T>::size() const
 {
-	/** TODO 
-		Fix this method
-	*/
-	return(0);
+	return(m_size);
 }
 
 template <typename T>
 bool LinkedList<T>::search(T value) const
 {
 	Node<T>* temp = m_front;
-	bool isFound = false;
-
-	/** TODO 
-		Fix this method
-	*/
-
-	return(isFound);
+	if (value > m_size || value < 1)
+	{
+		throw(std::runtime_error("Value out of list.\n"));
+	} else {
+		for (int i = 1; i < value; i++) {
+			temp = temp->getNext();
+		}
+		return(temp->getEntry());
+	}
 }
 
 template <typename T>
@@ -99,14 +98,20 @@ void LinkedList<T>::addFront(T value)
 template <typename T>
 bool LinkedList<T>::removeBack()
 {
-	Node<T>* lastNode = nullptr;
-	Node<T>* secondintoLast = nullptr;
+	Node<T>* before = m_front;
+   	Node<T>* target = m_front;
 	bool isRemoved = false;
-
-	/** TODO 
-		Fix this method
-	*/
-
+	if(!isEmpty())
+	{
+		for (int i = 1; i < m_size-1; i++)
+		{
+			before = before->getNext();
+		}
+		target = before->getNext();
+		delete target;
+		m_size--;
+		isRemoved = true;
+	}
 	return(isRemoved);
 }	
 
