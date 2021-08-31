@@ -36,7 +36,7 @@ template <typename T>
 bool LinkedList<T>::search(T value) const
 {
 	Node<T>* temp = m_front;
-	if (value > m_size || value < 1)
+	if (value > m_size || value < 0)
 	{
 		return(false);
 	} else {
